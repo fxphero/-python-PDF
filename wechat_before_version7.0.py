@@ -97,7 +97,7 @@ def main()
     get_info()
     print('共%d篇:\n' % (file_list.qsize()))
 
-    for x in range(10):
+    for x in range(5):
         t = consumer(file_list)
         t.start()
         
