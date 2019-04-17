@@ -92,12 +92,15 @@ class consumer(Thread):
 # In[ ]:
 
 
-#将文件名和网址存进两个列表
-file_list = Queue(maxsize)
-get_info()
-print('共%d篇:\n' % (file_list.qsize()))
+def main()
+    file_list = Queue(maxsize)
+    get_info()
+    print('共%d篇:\n' % (file_list.qsize()))
 
-for x in range(10):
-    t = consumer(file_list)
-    t.start()
+    for x in range(10):
+        t = consumer(file_list)
+        t.start()
+        
+if __name__ = '__main__':
+    main()
 
