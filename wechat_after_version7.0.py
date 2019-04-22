@@ -69,7 +69,7 @@ class consumer(Thread):
             
     def download(self):
         dirlist = os.listdir(save_path)#目标路径所有文件名
-        filename, url = file_list.get()
+        filename, url = self.file_list.get()
         if (filename[8:] not in dirlist): #如果文件已存在则跳过
             print(filename)
             print(url)
@@ -88,9 +88,9 @@ class consumer(Thread):
 # In[ ]:
 
 
-def main()
+def main():
     file_list = Queue(maxsize)
-    get_info()
+    get_info(file_list)
     print('共%d篇:\n' % (file_list.qsize()))
 
     for x in range(5):
