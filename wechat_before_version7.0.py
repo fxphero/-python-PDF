@@ -34,7 +34,7 @@ def get_filename(title):
 
 
 #从邮件发送形成的txt中提取每个链接的标题和地址
-def get_info(): 
+def get_info(file_list): 
     title_list = []
     url_list = []
     num = 0
