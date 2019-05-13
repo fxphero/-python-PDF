@@ -55,7 +55,27 @@ def get_info(file_list):
     for each in zip(title_list, url_list):
         file_list.put(each) 
 
+#从邮件发送形成的txt中提取每个链接的标题和地址
+def get_info1(file_list): 
 
+    with open(source_path) as f:
+        title_list = []
+        url_list = []
+        mode = re.compile(r'\[(.*?):.*?(http.*?)\]')
+        l = str(' ')
+        for each in (f.readlines()):
+            l += (str(each)).strip()
+        a = re.finditer(mode,l)
+
+        for each in a:
+            try:
+                title_list.append(each.group(1))
+                url_list.append(each.group(2))
+            except:
+                pass
+        title_list = list(map(get_filename, title_list))
+        for each in zip(title_list, url_list):
+            file_list.put(each) 
 # In[75]:
 
 
@@ -94,7 +114,7 @@ class consumer(Thread):
 
 def main():
     file_list = Queue(maxsize)
-    get_info(file_list)
+    get_info1(file_list)
     print('共%d篇:\n' % (file_list.qsize()))
 
     for x in range(5):
