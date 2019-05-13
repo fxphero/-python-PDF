@@ -39,7 +39,7 @@ def get_info():
         title_list = []
         url_list = []
         l = f.readline()
-        mode = re.compile(r'\[(.*?):(http://.*?)\]')
+        mode = re.compile(r'\[(.*?):.*?(http://.*?)\]')
         a = re.finditer(mode,l)
         for each in a:
             try:
