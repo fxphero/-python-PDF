@@ -82,7 +82,7 @@ class consumer(Thread):
                 print('【出现错误,请检查文件是否已下载！】')
 
         else:
-            print(filename,'【文件已存在！】')     
+            print(filename,url,'【文件已存在！】')     
 
 
 # In[ ]:
